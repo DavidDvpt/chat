@@ -2,7 +2,7 @@ import React from 'react';
 import './Contact.css';
 
 function Contact () {
-    return ''
+    return <div>dudul</div>
 }
 
 export default Contact
