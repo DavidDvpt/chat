@@ -6,16 +6,18 @@ class Contact extends React.Component {
 
     constructor(props) {
         super(props);
+        this.onlineListener=this.onlineListener.bind(this)
         this.state = {
             online: this.props.online
         }
     }
+    onlineListener(event) {
+        this.setState({
+            online: !this.state.online
+        })}
+
     render() {
-        const onlineListener = (event) => {
-            this.setState({
-                online: !this.state.online
-            })
-        }
+
         return (
             <div className="Contact">
                 <div className="avatar">
@@ -23,7 +25,7 @@ class Contact extends React.Component {
                 </div>
                 <div>
                     <h4 className="name">{this.props.name}</h4>
-                    <p className="status" onClick={onlineListener}>
+                    <p className="status" onClick={this.onlineListener}>
                         <span className={this.state.online ? "status-online" : "status-offline"} />
                         <span className="status-text">
                             {" "}
